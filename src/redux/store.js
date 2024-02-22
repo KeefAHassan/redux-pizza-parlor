@@ -13,7 +13,11 @@ const cart = (state = [], action) => {
   return state;
 }
 
-const userInfo = (state = [], action) => {
+const userInfo = (state = {}, action) => {
+
+  if(action.type === 'USERINFO_ADD'){
+    return action.payload;
+  }
   return state;
 }
 
