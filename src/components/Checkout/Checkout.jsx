@@ -13,6 +13,7 @@ function Checkout() {
         let newOrder = {...userInfo, total};
         let pizzaArray = cart.map(pizza => {return {id: pizza.id, quantity: 1};} );
         newOrder.pizzas = pizzaArray;
+        console.log(newOrder);
         axios({
             method: 'POST',
             url: '/api/order',
