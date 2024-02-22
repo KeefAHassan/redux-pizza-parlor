@@ -10,6 +10,9 @@ const cart = (state = [], action) => {
   else if (action.type === "REMOVE_FROM_CART") {
     return state.filter((item) => item.id !== action.payload)
   }
+  if (action.type === 'CART_CLEAR') {
+    return [];
+  }
   return state;
 }
 
@@ -17,6 +20,9 @@ const userInfo = (state = {}, action) => {
 
   if(action.type === 'USERINFO_ADD'){
     return action.payload;
+  }
+  if (action.type === 'USERINFO_CLEAR') {
+    return {};
   }
   return state;
 }

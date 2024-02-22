@@ -1,3 +1,5 @@
+
+import { HashRouter as Router, Route } from 'react-router-dom';
 import React from "react";
 import axios from "axios";
 import "./App.css";
@@ -5,8 +7,12 @@ import Header from "../Header/header";
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import PizzaItem from "../PizzaItem/pizzaItem";
+import Checkout from '../Checkout/Checkout';
+import CustomerInfoForm from '../CustomerInfoForm/CustomerInfoForm'
+import PizzaDisplay from '../PizzaDisplay/PizzaDisplay';
 
 function App() {
+  
   const [pizzaList, setPizzaList] = useState([]);
   const cart = useSelector((store) => store.cart);
   console.log(cart);
@@ -27,16 +33,26 @@ function App() {
   useEffect(fetchPizzas, []);
 
   return (
-    <div className="App">
-      <Header />
-
-      <p>Pizza is great.</p>
-      <div>
-        {pizzaList.map((pizza) => (
-          <PizzaItem pizza={pizza} />
-        ))}
+    <Router>
+      <div className="App">
+        <Route path="/" exact>
+          <Header />
+          <div>
+            {pizzaList.map((pizza) => (
+              <PizzaItem pizza={pizza} />
+            ))}
+            <PizzaDisplay />
+            {/* <button onClick={goToForm}>Next</button> */}
+          </div>
+        </Route>
+        <Route path="/customerinfo">
+              <CustomerInfoForm />
+        </Route>
+        <Route path="/checkout">
+          <Checkout />
+        </Route>
       </div>
-    </div>
+    </Router>
   );
 }
 
