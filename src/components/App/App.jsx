@@ -10,6 +10,7 @@ import PizzaItem from "../PizzaItem/pizzaItem";
 import Checkout from '../Checkout/Checkout';
 import CustomerInfoForm from '../CustomerInfoForm/CustomerInfoForm'
 import PizzaDisplay from '../PizzaDisplay/PizzaDisplay';
+import Admin from '../Admin/Admin';
 
 function App() {
   
@@ -50,6 +51,9 @@ function App() {
         </Route>
         <Route path="/checkout">
           <Checkout />
+        </Route>
+        <Route path="/admin">
+          <Admin />
         </Route>
       </div>
     </Router>
