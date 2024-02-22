@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 function CustomerInfoForm (){
 
-
+    const history = useHistory();
     const [customer_name, set_customer_name] = useState ('');
     const [street_address, set_street_address] = useState ('');
     const [city, setCity] = useState ('');
@@ -22,13 +23,13 @@ function CustomerInfoForm (){
             <input
                 required
                 placeholder = "Name"
-                value = {name}
+                value = {customer_name}
                 onChange = {(event) => set_customer_name(event.target.value)}
             />
             <input
                 required
                 placeholder = "Street Address" 
-                value = {streetAddress}
+                value = {street_address}
                 onChange = {(event) => set_street_address(event.target.value)}
             />
             <input
@@ -56,6 +57,7 @@ function CustomerInfoForm (){
                     type: "USERINFO_ADD",
                     payload: {customer_name, street_address, city, zip, type},
                 });
+                history.push('/checkout');
             }}>Next
             </button>
 
