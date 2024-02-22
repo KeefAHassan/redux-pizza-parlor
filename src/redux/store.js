@@ -3,10 +3,16 @@ import logger from 'redux-logger';
 
 // Be sure to replace this reducer! 🙂
 const cart = (state = [], action) => {
+  if (action.type === 'CART_CLEAR') {
+    return [];
+  }
   return state;
 }
 
-const userInfo = (state = [], action) => {
+const userInfo = (state = {}, action) => {
+  if (action.type === 'USERINFO_CLEAR') {
+    return {};
+  }
   return state;
 }
 
