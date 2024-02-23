@@ -43,3 +43,8 @@ thead{
   display: inline-block;
   background-color: yellow;
 }
+
+.AddPizza{
+  margin: 5px;
+  margin-bottom: 10px;
+}
