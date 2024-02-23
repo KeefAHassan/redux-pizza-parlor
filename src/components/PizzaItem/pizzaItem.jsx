@@ -15,7 +15,7 @@ function PizzaItem({ pizza }) {
       <h2>{pizza.name}</h2>
       <p>{pizza.description}</p>
       <span>${pizza.price}</span>
-      <button
+      <button className="AddPizza"
       //either adding to the cart or removing from the cart.
       //it depends if the current pizza is already is in cart.
         onClick={() => {
