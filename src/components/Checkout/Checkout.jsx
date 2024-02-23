@@ -8,8 +8,11 @@ function Checkout() {
     const userInfo = useSelector(store => store.userInfo);
     const cart = useSelector(store => store.cart);
 
+    let total = 0; // TODO: Figure out how to do the total
+    cart.map((item) => (total +=Number(item.price)));
+
     const checkout = () => {
-        let total = 0; // TODO: Figure out how to do the total
+
         let newOrder = {...userInfo, total};
         let pizzaArray = cart.map(pizza => {return {id: pizza.id, quantity: 1};} );
         newOrder.pizzas = pizzaArray;
@@ -49,7 +52,7 @@ function Checkout() {
             </tbody>
         </table>
         {/* TODO: Figure out how to do the total */}
-        <h3>Total: </h3>
+        <h3>Total: {total}</h3>
         <button onClick={checkout}>Checkout</button>
     </>);
 }
