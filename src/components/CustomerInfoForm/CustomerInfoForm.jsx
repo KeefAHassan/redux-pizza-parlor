@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import RadioButton from '../RadioButton/RadioButton';
+import Header from '../Header/header';
+import "./CustomerInfoForm.css";
 
 function CustomerInfoForm (){
 
@@ -14,45 +17,45 @@ function CustomerInfoForm (){
 
     const dispatch = useDispatch ();
 
+    function handleChange(event) {
+        console.log(event.target.value);
+        setType(event.target.value);
+      }
 
     return (
-        <>
-        <section>
+       <>
+            <Header />
+            <div className='CustomerInfo'>
             <h2>Step 2: Customer Information</h2>
-            <form>
+            <form className='Form'>
             <input
                 required
                 placeholder = "Name"
                 value = {customer_name}
                 onChange = {(event) => set_customer_name(event.target.value)}
-            />
-            <input
+            /><br></br>
+            <span><input
                 required
                 placeholder = "Street Address" 
                 value = {street_address}
                 onChange = {(event) => set_street_address(event.target.value)}
-            />
+            /></span><br></br>
             <input
                 required
                 placeholder = "City"
                 value = {city}
                 onChange = {(event) => setCity(event.target.value)}
-            />
+            /><br></br>
             <input
                 required
                 placeholder = "Zip" 
                 value = {zip}
                 onChange = {(event) => setZip(event.target.value)}
-            />
-            <input
-                required
-                placeholder = "Pickup" //Need to update with radio button format
-                value = {type}
-                onChange = {(event) => setType(event.target.value)}
+            /><br></br>
             
-            />
-
-            <button onClick={() => {
+            
+            <div className='NextButtonSection'>
+            <section className='NextButton'><button onClick={() => {
                 dispatch({
                     type: "USERINFO_ADD",
                     payload: {customer_name, street_address, city, zip, type},
@@ -60,24 +63,14 @@ function CustomerInfoForm (){
                 history.push('/checkout');
             }}>Next
             </button>
+            </section>
+            </div>
 
             </form>
-            </section>
-
-            <section>
-                <div className = "radio">
-                    <label>
-                        <input type="radio" value="Pickup" checked={true} />
-                            Pickup
-                    </label>
-                </div>
-                <div className = "radio">
-                    <label>
-                        <input type="radio" value="Delivery"/>
-                            Delivery
-                    </label>
-                </div>
-            </section>
+            </div>
+        <div>
+            <RadioButton type={type} handleChange={handleChange}/>
+        </div>
         </>
     );
 }
