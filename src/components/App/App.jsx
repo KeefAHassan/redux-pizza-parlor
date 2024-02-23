@@ -9,7 +9,7 @@ import { useState, useEffect } from "react";
 import PizzaItem from "../PizzaItem/pizzaItem";
 import Checkout from '../Checkout/Checkout';
 import CustomerInfoForm from '../CustomerInfoForm/CustomerInfoForm'
-import PizzaDisplay from '../PizzaDisplay/PizzaDisplay';
+import ButtonDisplay from '../ButtonDisplay/ButtonDisplay';
 import Admin from '../Admin/Admin';
 
 function App() {
@@ -50,7 +50,7 @@ function App() {
             {pizzaList.map((pizza) => (
               <PizzaItem pizza={pizza} />
             ))}
-            <PizzaDisplay />
+            <ButtonDisplay />
             {/* <button onClick={goToForm}>Next</button> */}
           </div>
         </Route>

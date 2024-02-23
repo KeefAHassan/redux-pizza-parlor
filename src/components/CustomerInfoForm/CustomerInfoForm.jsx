@@ -52,8 +52,10 @@ function CustomerInfoForm (){
                 value = {zip}
                 onChange = {(event) => setZip(event.target.value)}
             /><br></br>
-            
-            
+             <div>
+            <RadioButton type={type} handleChange={handleChange}/>
+            </div>
+            <br></br>
             <div className='NextButtonSection'>
             <section className='NextButton'><button onClick={() => {
                 dispatch({
@@ -68,9 +70,7 @@ function CustomerInfoForm (){
 
             </form>
             </div>
-        <div>
-            <RadioButton type={type} handleChange={handleChange}/>
-        </div>
+
         </>
     );
 }
