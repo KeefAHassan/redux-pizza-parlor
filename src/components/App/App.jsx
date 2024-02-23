@@ -13,17 +13,21 @@ import PizzaDisplay from '../PizzaDisplay/PizzaDisplay';
 import Admin from '../Admin/Admin';
 
 function App() {
-  
+  //crate state to hold all pizzas
   const [pizzaList, setPizzaList] = useState([]);
+  //got the reducer from the store.
+  //gets items that are in the cart.
   const cart = useSelector((store) => store.cart);
   console.log(cart);
   const dispatch = useDispatch();
+  //fetchPizzas from the server.
   const fetchPizzas = () => {
     //get request to fetch existing list items
     axios
       .get("/api/pizza")
       .then((response) => {
         console.log("GET request was successful:", response.data);
+        //save the pizza to the state.
         setPizzaList(response.data);
       })
       .catch((err) => {
@@ -39,6 +43,10 @@ function App() {
         <Route path="/" exact>
           <Header />
           <div>
+            {
+              //render the pizza itme to the pizza itme component.
+              //passes prop call pizza
+            }
             {pizzaList.map((pizza) => (
               <PizzaItem pizza={pizza} />
             ))}
