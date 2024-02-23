@@ -1,16 +1,21 @@
 .Form {
-    text-align: left;
+    text-align: center;
     padding-left: 50px;
     padding-top: 25px;
     display: block;
   }
 
   .NextButton{
-    text-align: right;
-    padding-right: 200px;
+    text-align: center;
     display: block;
   }
 
   .parent{
     display: flex
+  }
+
+  input{
+    margin-bottom: 15px;
+    padding: 5px;
+    padding-right: 50px;
   }

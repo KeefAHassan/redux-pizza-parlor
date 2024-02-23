@@ -20,7 +20,7 @@ function Header() {
       {
         //rendering the total cost
       }
-      <p>${totalCost}</p>
+      <p>Total: ${totalCost}</p>
     </header>
   );
 }

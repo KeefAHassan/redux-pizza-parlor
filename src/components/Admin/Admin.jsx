@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import Header from '../Header/header';
 
 function Admin() {
     const [orderList, setOrderList] = useState([]);
@@ -18,12 +19,16 @@ function Admin() {
 
     useEffect(fetchOrders, []);
 
-    return (<table>
+    return(
+        <>
+    <Header />
+    <table>
         <thead><tr><th>Name</th><th>Time Order Placed</th><th>Type</th><th>Cost</th></tr></thead>
         <tbody>
             {orderList.map(order => <tr key={order.id}><td>{order.customer_name}</td><td>{order.time}</td><td>{order.type}</td><td>{order.total}</td></tr>)}
         </tbody>
-    </table>);
+    </table>
+    </>);
 }
 
 export default Admin;

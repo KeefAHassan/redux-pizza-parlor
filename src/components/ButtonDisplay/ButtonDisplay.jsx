@@ -1,6 +1,6 @@
 import { useHistory } from 'react-router-dom';
 
-function PizzaDisplay() {
+function ButtonDisplay() {
     const history = useHistory();
 
     return (<>
@@ -8,4 +8,4 @@ function PizzaDisplay() {
     </>);
 }
 
-export default PizzaDisplay;
+export default ButtonDisplay;

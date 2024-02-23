@@ -35,10 +35,12 @@ function Checkout() {
     return (<>
         <h2>Step 3: Checkout</h2>
         {/* Display user info */}
+        <div className="CheckoutDiv">
         <p>{userInfo.customer_name}</p>
         <p>{userInfo.street_address}</p>
         <p>{userInfo.city} {userInfo.zip}</p>
-        <p>{userInfo.type}</p>
+        </div>
+        <p className="DeliveryType">{userInfo.type}</p>
         {/* Display pizzas */}
         <table>
             <thead>

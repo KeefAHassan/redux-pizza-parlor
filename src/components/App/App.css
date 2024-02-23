@@ -15,3 +15,31 @@
 .App-title {
   font-size: 2em;
 }
+
+img{
+  width: 300px;
+  height: 200px;
+}
+
+table{
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  border: 5px solid black;
+  font-weight: normal;
+}
+
+thead{
+  background-color: lightgray;
+}
+
+.CheckoutDiv{
+
+  border-top: 3px solid black;
+  border-bottom: 3px solid black;
+}
+
+.DeliveryType{
+  display: inline-block;
+  background-color: yellow;
+}
